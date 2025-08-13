@@ -10,8 +10,8 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
 
-  String name = "John Doe";
-  String email = "johndoe@example.com";
+  String name = "user";
+  String email = "user@gmail.com";
   String phone = "1234567890";
 
   @override

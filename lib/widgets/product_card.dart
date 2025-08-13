@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
           ],
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min, // ✅ Prevent overflow
+          mainAxisSize: MainAxisSize.min, 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
@@ -51,7 +51,7 @@ class ProductCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                mainAxisSize: MainAxisSize.min, // ✅ Let content size itself
+                mainAxisSize: MainAxisSize.min, 
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -66,7 +66,7 @@ class ProductCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 63, 58, 58),
                     ),
                   ),
                 ],
