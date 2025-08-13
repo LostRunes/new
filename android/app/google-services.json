@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117114619025",
+    "project_id": "apexo-87173",
+    "storage_bucket": "apexo-87173.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117114619025:android:32f77a2047ec91ba822b30",
+        "android_client_info": {
+          "package_name": "com.example.alexo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsxadgBBzfk-q7zLTueRTRfbKoZvASqH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
