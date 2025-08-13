@@ -33,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
 
     setState(() => _isLoading = true);
 
-    // Simple free "AI" API
+    
     try {
       final res = await http.get(Uri.parse("https://api.adviceslip.com/advice"));
       if (res.statusCode == 200) {

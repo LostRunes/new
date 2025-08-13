@@ -1,5 +1,6 @@
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class LocationPickerPage extends StatefulWidget {
   const LocationPickerPage({Key? key}) : super(key: key);
@@ -10,31 +11,37 @@ class LocationPickerPage extends StatefulWidget {
 
 class _LocationPickerPageState extends State<LocationPickerPage> {
   final TextEditingController _controller = TextEditingController();
-  final List<String> _allLocations = [
-    "Gulberg Phase 4, Lahore",
-    "Model Town, Lahore",
-    "DHA Phase 5, Lahore",
-    "Johar Town, Lahore",
-    "Bahria Town, Lahore",
-    "Cantt, Lahore",
-    "Wapda Town, Lahore",
-    "Faisal Town, Lahore",
-  ];
+  List<String> _suggestions = [];
 
-  List<String> _filteredLocations = [];
+  // Fetch suggestions from Nominatim API
+  Future<void> _fetchSuggestions(String input) async {
+    if (input.isEmpty) {
+      setState(() => _suggestions = []);
+      return;
+    }
 
-  @override
-  void initState() {
-    super.initState();
-    _filteredLocations = _allLocations;
-  }
+    final String url =
+        "https://nominatim.openstreetmap.org/search?q=$input&format=json&addressdetails=1&limit=10";
 
-  void _filterLocations(String query) {
-    setState(() {
-      _filteredLocations = _allLocations
-          .where((loc) => loc.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    });
+    try {
+      final response = await http.get(Uri.parse(url), headers: {
+        'User-Agent': 'FlutterApp', // Nominatim requires a user-agent
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List<dynamic>;
+        setState(() {
+          _suggestions = data
+              .map<String>((item) =>
+                  item['display_name'] as String) // full address string
+              .toList();
+        });
+      } else {
+        print("Error fetching locations: ${response.statusCode}");
+      }
+    } catch (e) {
+      print("Exception fetching locations: $e");
+    }
   }
 
   void _selectLocation(String location) {
@@ -61,14 +68,14 @@ class _LocationPickerPageState extends State<LocationPickerPage> {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              onChanged: _filterLocations,
+              onChanged: _fetchSuggestions,
             ),
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: _filteredLocations.length,
+              itemCount: _suggestions.length,
               itemBuilder: (context, index) {
-                final location = _filteredLocations[index];
+                final location = _suggestions[index];
                 return ListTile(
                   leading: const Icon(Icons.location_on, color: Colors.redAccent),
                   title: Text(location),
