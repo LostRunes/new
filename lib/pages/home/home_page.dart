@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
              
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Wallet coming soon')),
+                const SnackBar(content: Text('Wallet: balance ')),
               );
             },
           ),
@@ -322,13 +322,13 @@ class _HomePageState extends State<HomePage> {
         notchMargin: 8,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.grid_view)),
-            const SizedBox(width: 40), 
-            IconButton(onPressed: () {}, icon: const Icon(Icons.message)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
-          ],
+          // children: [
+          //   IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+          //   IconButton(onPressed: () {}, icon: const Icon(Icons.grid_view)),
+          //   const SizedBox(width: 40), 
+          //   IconButton(onPressed: () {}, icon: const Icon(Icons.message)),
+          //   IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
+          //],
         ),
       ),
     );

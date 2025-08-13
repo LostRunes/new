@@ -12,7 +12,7 @@ class WalletPage extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          "Your earnings will appear here.",
+          " Earnings",
           style: TextStyle(fontSize: 18),
         ),
       ),

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dummy data for categoryData
+    
     final Map<String, List<Map<String, dynamic>>> categoryData = {
       "Mobiles": [
         {"name": "iPhone 14", "price": 1200, "image": "https://via.placeholder.com/150"},

@@ -19,8 +19,8 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            const Text("John Doe", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            const Text("johndoe@example.com"),
+            const Text("user", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text("user@gmail"),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
