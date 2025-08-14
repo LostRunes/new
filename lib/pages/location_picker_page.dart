@@ -13,7 +13,7 @@ class _LocationPickerPageState extends State<LocationPickerPage> {
   final TextEditingController _controller = TextEditingController();
   List<String> _suggestions = [];
 
-  // Fetch suggestions from Nominatim API
+  
   Future<void> _fetchSuggestions(String input) async {
     if (input.isEmpty) {
       setState(() => _suggestions = []);
@@ -25,7 +25,7 @@ class _LocationPickerPageState extends State<LocationPickerPage> {
 
     try {
       final response = await http.get(Uri.parse(url), headers: {
-        'User-Agent': 'FlutterApp', // Nominatim requires a user-agent
+        'User-Agent': 'FlutterApp', 
       });
 
       if (response.statusCode == 200) {
@@ -33,7 +33,7 @@ class _LocationPickerPageState extends State<LocationPickerPage> {
         setState(() {
           _suggestions = data
               .map<String>((item) =>
-                  item['display_name'] as String) // full address string
+                  item['display_name'] as String) 
               .toList();
         });
       } else {

@@ -13,7 +13,7 @@ class MessagesPage extends StatelessWidget {
           ListTile(
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
-                "https://i.pravatar.cc/150?img=3", // Bot avatar placeholder
+                "https://i.pravatar.cc/150?img=3", 
               ),
             ),
             title: const Text("AI Bot"),
