@@ -57,12 +57,10 @@ class MyApp extends StatelessWidget {
         '/notifications': (_) => const NotificationsPage(),
 
        
-        '/chatThread': (_) => const ChatThreadPage(name: "John Doe"),
+        '/chatThread': (_) => const ChatThreadPage(name: "user"),
 
         '/addListing': (_) => const AddListingPage(),
         '/settings': (_) => const SettingsPage(),
-
-       
         '/allCategories': (_) => AllCategoriesPage(),
 
        
